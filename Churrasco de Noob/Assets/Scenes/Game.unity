@@ -119,6 +119,56 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &176229821
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 176229822}
+  - component: {fileID: 176229823}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &176229822
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 176229821}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &176229823
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 176229821}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 527b0298bbadaa14fabf7876251ea021, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waves: []
+  spawnPoints: []
+  boxSpawnPoints: []
+  boxPrefab: {fileID: 0}
+  timeBetweenWaves: 5
+  boxesPerWave: 3
 --- !u!1 &330585543
 GameObject:
   m_ObjectHideFlags: 0
@@ -275,7 +325,7 @@ MonoBehaviour:
   minDistance: 10
   maxDistance: 30
   zoomLimiter: 10
-  smoothTime: 0.2
+  smoothTime: 0.1
   offset: {x: 0, y: 10, z: -10}
 --- !u!1 &410087039
 GameObject:
@@ -1094,3 +1144,4 @@ SceneRoots:
   - {fileID: 806895799}
   - {fileID: 698582934}
   - {fileID: 816522929}
+  - {fileID: 176229822}
