@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 782db481704eb8e4cb078bc60e3f656d
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 312221
+  packageName: FullOpaqueFire
+  packageVersion: 1.1
+  assetPath: Assets/FullOpaqueFire/Prefabs/Particules_Mesh/P_Quad.prefab
+  uploadId: 736800
