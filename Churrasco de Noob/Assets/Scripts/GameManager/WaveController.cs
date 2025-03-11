@@ -39,12 +39,12 @@ public class WaveController : MonoBehaviour
         if (spawningWave)
         {
             waveTimer -= Time.deltaTime;
-            timerText.text = "Wave Time: " + Mathf.Ceil(waveTimer).ToString();
+            timerText.text = Mathf.Ceil(waveTimer).ToString();
         }
         else if (waitingForNextWave)
         {
             waitTimer -= Time.deltaTime;
-            timerText.text = "Next Wave In: " + Mathf.Ceil(waitTimer).ToString();
+            timerText.text = Mathf.Ceil(waitTimer).ToString();
         }
     }
 
