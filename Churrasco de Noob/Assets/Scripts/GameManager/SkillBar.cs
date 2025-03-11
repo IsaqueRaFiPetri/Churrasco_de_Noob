@@ -3,9 +3,15 @@ using UnityEngine.UI;
 
 public class SkillBar : MonoBehaviour
 {
+    public static SkillBar Instance;
     public Slider slider;
     public float decreaseRate = 1f; 
     private float currentValue;
+
+    private void Awake()
+    {
+        Instance = this;
+    }
 
     void Start()
     {

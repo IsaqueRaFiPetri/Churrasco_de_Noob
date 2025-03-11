@@ -2,16 +2,17 @@ using UnityEngine;
 
 public class PlayerFireball : MonoBehaviour
 {
-    public int maxBounces = 5; // Número máximo de quicadas
-    public float lifetime = 5f; // Tempo antes da bolinha desaparecer
+    public int maxBounces = 5; 
+    public float lifetime = 5f; 
     private int bounceCount = 0;
+    public float damage;
 
     private Rigidbody rb;
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        Destroy(gameObject, lifetime); // Destroi a bolinha após o tempo de vida
+        Destroy(gameObject, lifetime);
     }
 
     void OnCollisionEnter(Collision collision)
@@ -19,7 +20,17 @@ public class PlayerFireball : MonoBehaviour
         bounceCount++;
         if (bounceCount >= maxBounces)
         {
-            Destroy(gameObject); // Destroi a bolinha ao atingir o limite de quicadas
+            Destroy(gameObject);
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Enemy"))
+        {
+            EnemyLife life = other.gameObject.GetComponent<EnemyLife>();
+            life.TakeDamage(damage);
+            Destroy(gameObject);
         }
     }
 }
