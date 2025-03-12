@@ -18,6 +18,7 @@ public class PlayerMove : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         render = GetComponentInChildren<Renderer>();
         render.material.color = color;
+        Physics.IgnoreLayerCollision(3, 3);
     }
 
     private void Update()
@@ -32,12 +33,10 @@ public class PlayerMove : MonoBehaviour
 
         if (moveDirection.magnitude > 0)
         {
-            rb.linearVelocity = moveDirection * speed;
-            transform.rotation = Quaternion.LookRotation(moveDirection);
-        }
-        else
-        {
-            rb.linearVelocity = new Vector3(0, rb.linearVelocity.y, 0);
+            rb.linearVelocity = new Vector3(moveDirection.x * speed, rb.linearVelocity.y, moveDirection.z * speed);
+
+            Quaternion targetRotation = Quaternion.LookRotation(moveDirection);
+            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.fixedDeltaTime * 10f);
         }
     }
 

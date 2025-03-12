@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerShoot : MonoBehaviour
 {
@@ -7,18 +8,17 @@ public class PlayerShoot : MonoBehaviour
     public float bulletSpeed = 10f;
     public float fireRate = 0.2f;
     private float nextFireTime = 0f;
-    public string input;
 
-    void Update()
+    private void Update()
     {
-        if (Input.GetButton(input) && Time.time >= nextFireTime)
+        if (Time.time >= nextFireTime)
         {
             Shoot();
             nextFireTime = Time.time + fireRate;
         }
     }
 
-    void Shoot()
+    public void Shoot()
     {
         GameObject bullet = Instantiate(bulletPrefab, shootPoint.position, shootPoint.rotation);
         Rigidbody rb = bullet.GetComponent<Rigidbody>();

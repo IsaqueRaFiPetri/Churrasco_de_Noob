@@ -13,6 +13,7 @@ public class PlayerFireball : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         Destroy(gameObject, lifetime);
+        Physics.IgnoreLayerCollision(7, 3);
     }
 
     void OnCollisionEnter(Collision collision)

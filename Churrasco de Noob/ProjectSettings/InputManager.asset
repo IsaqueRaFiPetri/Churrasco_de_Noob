@@ -76,7 +76,7 @@ InputManager:
     negativeButton: 
     positiveButton: e
     altNegativeButton: 
-    altPositiveButton: left ctrl
+    altPositiveButton: 
     gravity: 1000
     dead: 0.001
     sensitivity: 1000
@@ -92,7 +92,7 @@ InputManager:
     negativeButton: 
     positiveButton: '[0]'
     altNegativeButton: 
-    altPositiveButton: right ctrl
+    altPositiveButton: 
     gravity: 1000
     dead: 0.001
     sensitivity: 1000
