@@ -8,7 +8,6 @@ public class PlayerMove : MonoBehaviour
     [SerializeField] private Color color;
 
     private Rigidbody rb;
-    private Renderer render;
 
     private float inputHorizontal;
     private float inputVertical;
@@ -16,8 +15,6 @@ public class PlayerMove : MonoBehaviour
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
-        render = GetComponentInChildren<Renderer>();
-        render.material.color = color;
         Physics.IgnoreLayerCollision(3, 3);
     }
 
