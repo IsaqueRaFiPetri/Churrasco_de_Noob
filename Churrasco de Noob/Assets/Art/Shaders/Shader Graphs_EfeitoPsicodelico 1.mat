@@ -54,6 +54,6 @@ Material:
     - _ClipRect: {r: 0, g: 0, b: 0, a: 0}
     - _Color1: {r: 1, g: 0.61111116, b: 0, a: 1}
     - _Color2: {r: 1, g: 0, b: 0.12549019, a: 1}
-    - _OffsetSpeed: {r: 0.1, g: 0, b: 0, a: 0}
+    - _OffsetSpeed: {r: 1, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
