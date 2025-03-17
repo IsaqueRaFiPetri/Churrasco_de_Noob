@@ -1,0 +1,48 @@
+using UnityEngine;
+using UnityEngine.AI;
+
+public class EnemyExplodeFollow : MonoBehaviour
+{
+    private NavMeshAgent agent;
+    private GameObject[] players;
+
+    void Start()
+    {
+        agent = GetComponent<NavMeshAgent>();
+    }
+
+    void Update()
+    {
+        FindPlayers();
+        FollowClosestPlayer();
+    }
+
+    void FindPlayers()
+    {
+        players = GameObject.FindGameObjectsWithTag("Player");
+    }
+
+    void FollowClosestPlayer()
+    {
+        if (players.Length == 0)
+            return;
+
+        GameObject closestPlayer = null;
+        float closestDistance = Mathf.Infinity;
+
+        foreach (GameObject player in players)
+        {
+            float distance = Vector3.Distance(transform.position, player.transform.position);
+            if (distance < closestDistance)
+            {
+                closestDistance = distance;
+                closestPlayer = player;
+            }
+        }
+
+        if (closestPlayer != null)
+        {
+            agent.SetDestination(closestPlayer.transform.position);
+        }
+    }
+}

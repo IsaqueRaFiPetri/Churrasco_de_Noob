@@ -6,6 +6,7 @@ public class PlayerFireball : MonoBehaviour
     public float lifetime = 5f; 
     private int bounceCount = 0;
     public float damage;
+    public GameObject particleEffect;
 
     private Rigidbody rb;
 
@@ -31,7 +32,17 @@ public class PlayerFireball : MonoBehaviour
         {
             EnemyLife life = other.gameObject.GetComponent<EnemyLife>();
             life.TakeDamage(damage);
+            SpawnParticleEffect();
             Destroy(gameObject);
+        }
+    }
+
+    void SpawnParticleEffect()
+    {
+        if (particleEffect != null)
+        {
+            GameObject effect = Instantiate(particleEffect, transform.position, Quaternion.identity);
+            Destroy(effect, 2f);
         }
     }
 }
