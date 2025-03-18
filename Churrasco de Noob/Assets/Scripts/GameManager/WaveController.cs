@@ -11,6 +11,7 @@ public class WaveController : MonoBehaviour
         public string waveName;
         public GameObject[] enemies;
         public float waveDuration;
+        public float spawnRate;
     }
 
     public Wave[] waves;
@@ -59,6 +60,7 @@ public class WaveController : MonoBehaviour
             if (currentWaveIndex < waves.Length)
             {
                 yield return StartCoroutine(SpawnBoxes());
+                waveText.text = "Break";
                 waitingForNextWave = true;
                 waitTimer = timeBetweenWaves;
                 yield return new WaitForSeconds(timeBetweenWaves);
@@ -71,6 +73,8 @@ public class WaveController : MonoBehaviour
     {
         spawningWave = true;
         waveTimer = wave.waveDuration;
+        float spawnInterval = 1f / wave.spawnRate;
+
         float startTime = Time.time;
 
         while (Time.time - startTime < wave.waveDuration)
@@ -78,7 +82,7 @@ public class WaveController : MonoBehaviour
             GameObject enemy = wave.enemies[Random.Range(0, wave.enemies.Length)];
             Transform spawnPoint = spawnPoints[Random.Range(0, spawnPoints.Length)];
             Instantiate(enemy, spawnPoint.position, Quaternion.identity);
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(spawnInterval);
         }
 
         spawningWave = false;
@@ -92,6 +96,5 @@ public class WaveController : MonoBehaviour
             Instantiate(boxPrefab, boxSpawn.position, Quaternion.identity);
             yield return new WaitForSeconds(0.5f);
         }
-
     }
 }
