@@ -8,11 +8,9 @@ public class PlayerFireball : MonoBehaviour
     public float damage;
     public GameObject particleEffect;
 
-    private Rigidbody rb;
 
     void Start()
     {
-        rb = GetComponent<Rigidbody>();
         Destroy(gameObject, lifetime);
         Physics.IgnoreLayerCollision(7, 3);
     }
