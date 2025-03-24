@@ -8,10 +8,12 @@ public class PlayerStats : MonoBehaviour
     public float damage;
 
     PlayerMove move;
+    PlayerShoot shoot;
 
     private void Awake()
     {
         move = GetComponent<PlayerMove>();
+        shoot = GetComponent<PlayerShoot>();
     }
 
     public void ChangeMoveSPD(float gain)
@@ -28,9 +30,12 @@ public class PlayerStats : MonoBehaviour
     public void ChangeFireRate(float gain)
     {
         fireRate -= gain;
+        shoot.fireRate = fireRate;
     }
     public void ChangeDamage(float gain)
     {
-        fireRate -= gain;
+        damage += gain;
+        shoot.damage = damage;
+        Debug.Log(damage);
     }
 }

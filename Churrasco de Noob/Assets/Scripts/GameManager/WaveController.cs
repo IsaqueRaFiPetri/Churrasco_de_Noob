@@ -74,7 +74,6 @@ public class WaveController : MonoBehaviour
         spawningWave = true;
         waveTimer = wave.waveDuration;
         float spawnInterval = 1f / wave.spawnRate;
-
         float startTime = Time.time;
 
         while (Time.time - startTime < wave.waveDuration)
@@ -90,9 +89,13 @@ public class WaveController : MonoBehaviour
 
     IEnumerator SpawnBoxes()
     {
-        for (int i = 0; i < boxesPerWave; i++)
+        List<Transform> availableSpawns = new List<Transform>(boxSpawnPoints);
+
+        for (int i = 0; i < boxesPerWave && availableSpawns.Count > 0; i++)
         {
-            Transform boxSpawn = boxSpawnPoints[Random.Range(0, boxSpawnPoints.Length)];
+            int index = Random.Range(0, availableSpawns.Count);
+            Transform boxSpawn = availableSpawns[index];
+            availableSpawns.RemoveAt(index);
             Instantiate(boxPrefab, boxSpawn.position, Quaternion.identity);
             yield return new WaitForSeconds(0.5f);
         }

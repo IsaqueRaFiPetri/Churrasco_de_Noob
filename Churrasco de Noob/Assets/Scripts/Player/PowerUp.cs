@@ -26,6 +26,12 @@ public class PowerUp : MonoBehaviour
                     case PowerUpType.Speed:
                         stats.ChangeMoveSPD(gain);
                         break;
+                    case PowerUpType.FireRate:
+                        stats.ChangeFireRate(0.1f);
+                        break;
+                    case PowerUpType.Damage:
+                        stats.ChangeDamage(gain);
+                        break;
                 }
             }
 

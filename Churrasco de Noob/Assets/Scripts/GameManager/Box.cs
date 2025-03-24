@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Box : MonoBehaviour
 {
-    public GameObject objectToSpawn;
+    public GameObject[] objectsToSpawn;
     public GameObject particleEffect;
 
     private void OnCollisionEnter(Collision collision)
@@ -17,13 +17,14 @@ public class Box : MonoBehaviour
 
     private void SpawnObject()
     {
-        if (objectToSpawn != null)
+        if (objectsToSpawn != null && objectsToSpawn.Length > 0)
         {
+            GameObject objectToSpawn = objectsToSpawn[Random.Range(0, objectsToSpawn.Length)];
             Instantiate(objectToSpawn, transform.position, Quaternion.identity);
             SpawnParticleEffect();
         }
 
-        Destroy(gameObject); 
+        Destroy(gameObject);
     }
 
     void SpawnParticleEffect()
@@ -34,4 +35,5 @@ public class Box : MonoBehaviour
             Destroy(effect, 2f);
         }
     }
+
 }
