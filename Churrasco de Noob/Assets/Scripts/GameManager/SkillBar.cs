@@ -47,6 +47,15 @@ public class SkillBar : MonoBehaviour
         }
         slider.value = currentValue;
     }
+    public void DecreaseSlider(float amount)
+    {
+        currentValue -= amount;
+        if (currentValue > slider.maxValue)
+        {
+            currentValue = slider.maxValue;
+        }
+        slider.value = currentValue;
+    }
 
     private void OnSliderEmpty()
     {
