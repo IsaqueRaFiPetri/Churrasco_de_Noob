@@ -21,6 +21,8 @@ public class WaveController : MonoBehaviour
     public float timeBetweenWaves = 5f;
     public int boxesPerWave = 3;
 
+    public GameObject portal;
+
     public TMP_Text waveText;
     public TMP_Text timerText;
 
@@ -66,6 +68,10 @@ public class WaveController : MonoBehaviour
                 yield return new WaitForSeconds(timeBetweenWaves);
                 waitingForNextWave = false;
             }
+            else
+            {
+                EndGame();
+            }
         }
     }
 
@@ -99,5 +105,12 @@ public class WaveController : MonoBehaviour
             Instantiate(boxPrefab, boxSpawn.position, Quaternion.identity);
             yield return new WaitForSeconds(0.5f);
         }
+    }
+
+    void EndGame()
+    {
+        waveText.text = "Entre no portal";
+        timerText.text = "";
+        portal.SetActive(true);
     }
 }

@@ -5,16 +5,19 @@ public class EnemyExplodeFollow : MonoBehaviour
 {
     private NavMeshAgent agent;
     private GameObject[] players;
+    [SerializeField] private Animator animator;
 
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
+        animator = GetComponent<Animator>();
     }
 
     void Update()
     {
         FindPlayers();
         FollowClosestPlayer();
+        UpdateAnimation();
     }
 
     void FindPlayers()
@@ -44,5 +47,11 @@ public class EnemyExplodeFollow : MonoBehaviour
         {
             agent.SetDestination(closestPlayer.transform.position);
         }
+    }
+
+    void UpdateAnimation()
+    {
+        bool isMoving = agent.velocity.magnitude > 0.1f;
+        animator.SetBool("isRunning", isMoving);
     }
 }

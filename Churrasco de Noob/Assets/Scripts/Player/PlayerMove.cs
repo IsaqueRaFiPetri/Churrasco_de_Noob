@@ -6,6 +6,7 @@ public class PlayerMove : MonoBehaviour
     [SerializeField] private string inputNameHorizontal;
     [SerializeField] private string inputNameVertical;
     [SerializeField] private Color color;
+    [SerializeField] private Animator animator;
 
     private Rigidbody rb;
 
@@ -22,6 +23,9 @@ public class PlayerMove : MonoBehaviour
     {
         inputHorizontal = Input.GetAxisRaw(inputNameHorizontal);
         inputVertical = Input.GetAxisRaw(inputNameVertical);
+
+        bool isMoving = inputHorizontal != 0 || inputVertical != 0;
+        animator.SetBool("isRunning", isMoving);
     }
 
     private void FixedUpdate()
