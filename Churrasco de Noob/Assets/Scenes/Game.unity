@@ -311,7 +311,22 @@ MonoBehaviour:
     enemies:
     - {fileID: 8792299893773451330, guid: c34975e5a6050484d845968f0fd422fa, type: 3}
     waveDuration: 10
+    spawnRate: 0.7
+  - waveName: Wave 3
+    enemies:
+    - {fileID: 8792299893773451330, guid: c34975e5a6050484d845968f0fd422fa, type: 3}
+    waveDuration: 12
     spawnRate: 0.8
+  - waveName: Wave 4
+    enemies:
+    - {fileID: 8792299893773451330, guid: c34975e5a6050484d845968f0fd422fa, type: 3}
+    waveDuration: 15
+    spawnRate: 0.8
+  - waveName: Wave 5
+    enemies:
+    - {fileID: 8792299893773451330, guid: c34975e5a6050484d845968f0fd422fa, type: 3}
+    waveDuration: 15
+    spawnRate: 1
   spawnPoints:
   - {fileID: 1413804108}
   - {fileID: 343130327}
@@ -322,7 +337,7 @@ MonoBehaviour:
   - {fileID: 1828178446}
   - {fileID: 1655870507}
   boxPrefab: {fileID: 5487195766694118163, guid: 5319c2c6392ea434190d69e8d0146dc5, type: 3}
-  timeBetweenWaves: 15
+  timeBetweenWaves: 6
   boxesPerWave: 3
   waveText: {fileID: 375596019}
   timerText: {fileID: 582973992}
@@ -340,6 +355,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slider: {fileID: 1794978281}
   decreaseRate: 2
+  sceneName: GameOver
 --- !u!1 &235009297
 GameObject:
   m_ObjectHideFlags: 0

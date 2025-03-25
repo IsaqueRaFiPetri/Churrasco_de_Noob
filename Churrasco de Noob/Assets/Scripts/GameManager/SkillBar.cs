@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class SkillBar : MonoBehaviour
@@ -7,6 +8,7 @@ public class SkillBar : MonoBehaviour
     public Slider slider;
     public float decreaseRate = 1f; 
     private float currentValue;
+    public string sceneName;
 
     private void Awake()
     {
@@ -59,6 +61,6 @@ public class SkillBar : MonoBehaviour
 
     private void OnSliderEmpty()
     {
-        Debug.Log("befana");
+        SceneManager.LoadScene(sceneName);
     }
 }
