@@ -4,7 +4,6 @@ using UnityEngine.SceneManagement;
 public class Portal : MonoBehaviour
 {
     public int index;
-
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))

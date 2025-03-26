@@ -23,7 +23,7 @@ public class Box : MonoBehaviour
             Instantiate(objectToSpawn, transform.position, Quaternion.identity);
             SpawnParticleEffect();
         }
-
+        AudioManager.Instance.box.Play();
         Destroy(gameObject);
     }
 
