@@ -30,6 +30,7 @@ public class PlayerFireball : MonoBehaviour
         {
             EnemyLife life = other.gameObject.GetComponent<EnemyLife>();
             life.TakeDamage(damage);
+            AudioManager.Instance.fireball.Play();
             SpawnParticleEffect();
             Destroy(gameObject);
         }

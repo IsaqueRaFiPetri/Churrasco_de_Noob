@@ -7,9 +7,9 @@ public class PlayerMove : MonoBehaviour
     [SerializeField] private string inputNameVertical;
     [SerializeField] private Color color;
     [SerializeField] private Animator animator;
+    [SerializeField] private AudioSource footstepAudio;
 
     private Rigidbody rb;
-
     private float inputHorizontal;
     private float inputVertical;
 
@@ -26,6 +26,16 @@ public class PlayerMove : MonoBehaviour
 
         bool isMoving = inputHorizontal != 0 || inputVertical != 0;
         animator.SetBool("isRunning", isMoving);
+
+        // Controla o som dos passos
+        /*if (isMoving && !footstepAudio.isPlaying)
+        {
+            footstepAudio.Play();
+        }
+        else if (!isMoving && footstepAudio.isPlaying)
+        {
+            footstepAudio.Pause();
+        }*/
     }
 
     private void FixedUpdate()

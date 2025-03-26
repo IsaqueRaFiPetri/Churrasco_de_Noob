@@ -52,6 +52,7 @@ public class EnemyExplode : MonoBehaviour
             GameObject effect = Instantiate(explosionEffect, transform.position, Quaternion.identity);
             Destroy(effect, 2f);
         }
+        AudioManager.Instance.explosion.Play();
         Destroy(gameObject);
     }
 }
