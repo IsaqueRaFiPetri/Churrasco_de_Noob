@@ -5,10 +5,10 @@ using UnityEngine.UI;
 public class SkillBar : MonoBehaviour
 {
     public static SkillBar Instance;
-    public Slider slider;
-    public float decreaseRate = 1f; 
+    [SerializeField] Slider slider;
+    [SerializeField] float decreaseRate = 1f; 
     private float currentValue;
-    public string sceneName;
+    [SerializeField] string sceneName;
 
     private void Awake()
     {

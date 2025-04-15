@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class Box : MonoBehaviour
 {
-    public GameObject[] objectsToSpawn;
-    public GameObject particleEffect;
+    [SerializeField] GameObject[] objectsToSpawn;
+    [SerializeField] GameObject particleEffect;
 
     private void OnCollisionEnter(Collision collision)
     {

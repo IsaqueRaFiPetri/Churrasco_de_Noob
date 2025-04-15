@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Explosion : MonoBehaviour
 {
-    public float damage;
+    [SerializeField] float damage;
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))

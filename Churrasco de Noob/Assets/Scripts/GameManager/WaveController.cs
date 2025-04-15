@@ -8,29 +8,29 @@ public class WaveController : MonoBehaviour
     [System.Serializable]
     public class Wave
     {
-        public string waveName;
+        [SerializeField] string waveName;
         public GameObject[] enemies;
         public float waveDuration;
         public float spawnRate;
     }
 
-    public Wave[] waves;
-    public Transform[] spawnPoints;
-    public Transform[] boxSpawnPoints;
-    public GameObject boxPrefab;
-    public float timeBetweenWaves = 5f;
-    public int boxesPerWave = 3;
+    [SerializeField] Wave[] waves;
+    [SerializeField] Transform[] spawnPoints;
+    [SerializeField] Transform[] boxSpawnPoints;
+    [SerializeField] GameObject boxPrefab;
+    [SerializeField] float timeBetweenWaves = 5f;
+    [SerializeField] int boxesPerWave = 3;
 
-    public GameObject portal;
+    [SerializeField] GameObject portal;
 
-    public TMP_Text waveText;
-    public TMP_Text timerText;
+    [SerializeField] TMP_Text waveText;
+    [SerializeField] TMP_Text timerText;
 
-    private int currentWaveIndex = 0;
-    private bool spawningWave = false;
-    private float waveTimer;
-    private float waitTimer;
-    private bool waitingForNextWave = false;
+    int currentWaveIndex = 0;
+    bool spawningWave = false;
+    float waveTimer;
+    float waitTimer;
+    bool waitingForNextWave = false;
 
     void Start()
     {

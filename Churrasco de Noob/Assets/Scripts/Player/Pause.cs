@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Pause : MonoBehaviour
 {
-    public GameObject panel;
+    [SerializeField] GameObject panel;
 
     private void Update()
     {

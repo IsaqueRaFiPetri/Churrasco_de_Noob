@@ -3,9 +3,9 @@ using UnityEngine.AI;
 
 public class EnemyExplodeFollow : MonoBehaviour
 {
-    private NavMeshAgent agent;
-    private GameObject[] players;
-    [SerializeField] private Animator animator;
+    NavMeshAgent agent;
+    GameObject[] players;
+    [SerializeField] Animator animator;
 
     void Start()
     {

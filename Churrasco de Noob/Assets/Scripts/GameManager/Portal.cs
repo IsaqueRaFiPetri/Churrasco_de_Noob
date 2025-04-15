@@ -3,7 +3,7 @@ using UnityEngine.SceneManagement;
 
 public class Portal : MonoBehaviour
 {
-    public int index;
+    [SerializeField] int index;
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))

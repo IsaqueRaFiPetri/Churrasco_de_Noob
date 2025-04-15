@@ -4,13 +4,13 @@ using UnityEngine.AI;
 
 public class EnemyExplode : MonoBehaviour
 {
-    public float detectionRange = 5f;
-    public float explosionDelay = 1f;
-    public GameObject explosionEffect;
+    [SerializeField] float detectionRange = 5f;
+    [SerializeField] float explosionDelay = 1f;
+    [SerializeField] GameObject explosionEffect;
 
-    private NavMeshAgent agent;
-    private Vector3 originalScale;
-    private bool isExploding = false;
+    NavMeshAgent agent;
+    Vector3 originalScale;
+    bool isExploding = false;
 
     void Start()
     {

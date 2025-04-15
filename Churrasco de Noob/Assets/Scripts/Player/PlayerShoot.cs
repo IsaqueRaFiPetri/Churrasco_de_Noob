@@ -3,11 +3,11 @@ using UnityEngine.InputSystem;
 
 public class PlayerShoot : MonoBehaviour
 {
-    public GameObject bulletPrefab;
-    public Transform shootPoint;
-    public float bulletSpeed = 10f;
+    [SerializeField] GameObject bulletPrefab;
+    [SerializeField] Transform shootPoint;
+    [SerializeField] float bulletSpeed = 10f;
     public float fireRate = 0.2f;
-    [HideInInspector]public float damage = 1;
+    public float damage = 1;
     private float nextFireTime = 0f;
 
     PlayerStats stats;

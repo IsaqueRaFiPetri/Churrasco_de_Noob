@@ -2,11 +2,11 @@ using UnityEngine;
 
 public class PlayerFireball : MonoBehaviour
 {
-    public int maxBounces = 5; 
-    public float lifetime = 5f; 
+    [SerializeField] int maxBounces = 5;
+    [SerializeField] float lifetime = 5f; 
     private int bounceCount = 0;
-    public float damage;
-    public GameObject particleEffect;
+    [SerializeField] float damage;
+    [SerializeField] GameObject particleEffect;
 
 
     void Start()

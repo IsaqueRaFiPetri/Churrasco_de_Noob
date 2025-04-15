@@ -28,14 +28,14 @@ public class PlayerMove : MonoBehaviour
         animator.SetBool("isRunning", isMoving);
 
         // Controla o som dos passos
-        /*if (isMoving && !footstepAudio.isPlaying)
+        if (isMoving && !footstepAudio.isPlaying)
         {
             footstepAudio.Play();
         }
         else if (!isMoving && footstepAudio.isPlaying)
         {
             footstepAudio.Pause();
-        }*/
+        }
     }
 
     private void FixedUpdate()

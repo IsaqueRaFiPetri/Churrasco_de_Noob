@@ -2,15 +2,15 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
-    public Transform player1;
-    public Transform player2;
-    public Camera mainCamera;
+    [SerializeField] Transform player1;
+    [SerializeField] Transform player2;
+    [SerializeField] Camera mainCamera;
 
-    public float minDistance = 10f;
-    public float maxDistance = 30f;
-    public float zoomLimiter = 10f;
-    public float smoothTime = 0.2f;
-    public Vector3 offset = new Vector3(0, 10, -10);
+    [SerializeField] float minDistance = 10f;
+    [SerializeField] float maxDistance = 30f;
+    [SerializeField] float zoomLimiter = 10f;
+    [SerializeField] float smoothTime = 0.2f;
+    [SerializeField] Vector3 offset = new Vector3(0, 10, -10);
 
     private Vector3 velocity;
 

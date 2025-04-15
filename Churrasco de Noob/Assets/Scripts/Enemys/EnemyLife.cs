@@ -2,9 +2,9 @@ using UnityEngine;
 
 public class EnemyLife : MonoBehaviour
 {
-    public float maxLife;
-    public float currentLife;
-    public float gain;
+    [SerializeField] float maxLife;
+    float currentLife;
+    [SerializeField] float gain;
 
     private void Start()
     {
