@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 public class PlayerShoot : MonoBehaviour
 {
@@ -8,7 +7,7 @@ public class PlayerShoot : MonoBehaviour
     [SerializeField] float bulletSpeed = 10f;
     public float fireRate = 0.2f;
     public float damage = 1;
-    private float nextFireTime = 0f;
+    float nextFireTime = 0f;
 
     PlayerStats stats;
 
