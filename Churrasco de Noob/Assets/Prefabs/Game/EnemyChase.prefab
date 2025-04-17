@@ -1664,12 +1664,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8345647581689683715}
-  - component: {fileID: 8745410005561818921}
-  - component: {fileID: 7103669046755497994}
   - component: {fileID: 7171766710009037181}
-  - component: {fileID: 2884063573294961752}
   - component: {fileID: 8266591094643695192}
   - component: {fileID: 7953109924293447978}
+  - component: {fileID: -707136141479809132}
   m_Layer: 0
   m_Name: EnemyChase
   m_TagString: Enemy
@@ -1693,33 +1691,6 @@ Transform:
   - {fileID: 5462356110194421518}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8745410005561818921
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8792299893773451330}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f79bfef732968e842aa39c568fdd6330, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxLife: 1
-  currentLife: 1
-  gain: 5
---- !u!114 &7103669046755497994
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8792299893773451330}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d210b0250a32f104fbd4ad31a1f8ce2c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!195 &7171766710009037181
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -1742,21 +1713,6 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &2884063573294961752
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8792299893773451330}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f06ba0bd0784e8428562fccab3e4416, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  detectionRange: 2
-  explosionDelay: 0.2
-  explosionEffect: {fileID: 1828176872806910, guid: 64891a0eb28db934898420d80ca07cb3, type: 3}
 --- !u!136 &8266591094643695192
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1802,6 +1758,23 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &-707136141479809132
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8792299893773451330}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: baa03608d9b143240a7da62855db769c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxLife: 1
+  gain: 5
+  detectionRange: 2
+  explosionDelay: 0.2
+  explosionEffect: {fileID: 1828176872806910, guid: 64891a0eb28db934898420d80ca07cb3, type: 3}
 --- !u!1 &8804554261590541697
 GameObject:
   m_ObjectHideFlags: 0

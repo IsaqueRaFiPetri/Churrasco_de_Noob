@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class SkillBar : MonoBehaviour
+public class SkillBar : MonoBehaviour, ISlidable
 {
     public static SkillBar Instance;
     [SerializeField] Slider slider;

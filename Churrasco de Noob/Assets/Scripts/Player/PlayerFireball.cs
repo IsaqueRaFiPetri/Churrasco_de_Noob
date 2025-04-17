@@ -28,7 +28,7 @@ public class PlayerFireball : MonoBehaviour
     {
         if (other.CompareTag("Enemy"))
         {
-            EnemyLife life = other.gameObject.GetComponent<EnemyLife>();
+            EnemyStatus life = other.gameObject.GetComponent<EnemyStatus>();
             life.TakeDamage(damage);
             AudioManager.Instance.fireball.Play();
             SpawnParticleEffect();

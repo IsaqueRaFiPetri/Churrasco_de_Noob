@@ -2,25 +2,25 @@ using UnityEngine;
 using UnityEngine.AI;
 using System.Collections;
 
-public class EnemyStatus : MonoBehaviour
+public class EnemyStatus : MonoBehaviour, IDamagable
 {
     [Header("Enemy Life Variables")]
     [SerializeField] float maxLife;
     float currentLife;
-    [SerializeField] float gain;
+    [SerializeField] protected float gain;
 
     [Header("Enemy Variables")]
     NavMeshAgent agent;
     GameObject[] players;
-    [SerializeField] Animator animator;
+    Animator animator;
 
     [Header("Explosion Variables")]
-    [SerializeField] float detectionRange = 5f;
+    [SerializeField] protected float detectionRange = 5f;
     [SerializeField] float explosionDelay = 1f;
     [SerializeField] GameObject explosionEffect;
 
     Vector3 originalScale;
-    bool isExploding = false;
+    protected bool isExploding = false;
 
     private void Awake()
     {
@@ -33,30 +33,13 @@ public class EnemyStatus : MonoBehaviour
         currentLife = maxLife;
     }
 
-    #region Life_And_Dead Cycle
-    public void TakeDamage(float amount)
-    {
-        currentLife -= amount;
-        if (currentLife <= 0)
-        {
-            Die();
-        }
-    }
-
-    void Die()
-    {
-        SkillBar.Instance.IncreaseSlider(gain);
-        Destroy(gameObject);
-    }
-    #endregion Life_And_Dead Cycle
-
     #region PlayerLocation
-    void FindPlayers()
+    protected void FindPlayers()
     {
         players = GameObject.FindGameObjectsWithTag("Player");
     }
 
-    void FollowClosestPlayer()
+    protected void FollowClosestPlayer()
     {
         if (players.Length == 0)
             return;
@@ -80,15 +63,15 @@ public class EnemyStatus : MonoBehaviour
         }
     }
 
-    void UpdateAnimation()
+    protected void UpdateAnimation()
     {
         bool isMoving = agent.velocity.magnitude > 0.1f;
         animator.SetBool("isRunning", isMoving);
     }
     #endregion PlayerLocation
 
-
-    IEnumerator ExplodeSequence()
+    #region ExplodeSequence
+    protected IEnumerator ExplodeSequence()
     {
         isExploding = true;
         agent.isStopped = true;
@@ -108,6 +91,23 @@ public class EnemyStatus : MonoBehaviour
             Destroy(effect, 2f);
         }
         AudioManager.Instance.explosion.Play();
+        Destroy(gameObject);
+    }
+
+
+    #endregion ExplodeSequence
+
+    public void TakeDamage(float amount)
+    {
+        currentLife -= amount;
+        if (currentLife <= 0)
+        {
+            Die();
+        }
+    }
+    public void Die()
+    {
+        SkillBar.Instance.IncreaseSlider(gain);
         Destroy(gameObject);
     }
 }
