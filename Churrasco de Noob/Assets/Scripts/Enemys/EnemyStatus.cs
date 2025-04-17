@@ -15,8 +15,8 @@ public class EnemyStatus : MonoBehaviour, IDamagable
     Animator animator;
 
     [Header("Explosion Variables")]
-    [SerializeField] protected float detectionRange = 5f;
-    [SerializeField] float explosionDelay = 1f;
+    [SerializeField] protected float detectionRange;
+    [SerializeField] float explosionDelay;
     [SerializeField] GameObject explosionEffect;
 
     Vector3 originalScale;

@@ -2,43 +2,32 @@ using UnityEngine;
 
 public class PlayerMove : MonoBehaviour
 {
-    [SerializeField] public float speed;
-    [SerializeField] private string inputNameHorizontal;
-    [SerializeField] private string inputNameVertical;
-    [SerializeField] private Color color;
-    [SerializeField] private Animator animator;
-    [SerializeField] private AudioSource footstepAudio;
+    public float speed;
+    [SerializeField] string inputNameHorizontal;
+    [SerializeField] string inputNameVertical;
+    [SerializeField] Color color;
+    [SerializeField] Animator animator;
 
-    private Rigidbody rb;
-    private float inputHorizontal;
-    private float inputVertical;
+     Rigidbody rb;
+     float inputHorizontal;
+     float inputVertical;
 
-    private void Start()
+    void Start()
     {
         rb = GetComponent<Rigidbody>();
         Physics.IgnoreLayerCollision(3, 3);
     }
 
-    private void Update()
+    void Update()
     {
         inputHorizontal = Input.GetAxisRaw(inputNameHorizontal);
         inputVertical = Input.GetAxisRaw(inputNameVertical);
 
         bool isMoving = inputHorizontal != 0 || inputVertical != 0;
         animator.SetBool("isRunning", isMoving);
-
-        // Controla o som dos passos
-        if (isMoving && !footstepAudio.isPlaying)
-        {
-            footstepAudio.Play();
-        }
-        else if (!isMoving && footstepAudio.isPlaying)
-        {
-            footstepAudio.Pause();
-        }
     }
 
-    private void FixedUpdate()
+    void FixedUpdate()
     {
         Vector3 moveDirection = new Vector3(inputHorizontal, 0f, inputVertical).normalized;
 
