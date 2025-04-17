@@ -6,7 +6,7 @@ public class PlayerMove : MonoBehaviour
     [SerializeField] string inputNameHorizontal;
     [SerializeField] string inputNameVertical;
     [SerializeField] Color color;
-    [SerializeField] Animator animator;
+    [SerializeField] Animator anim;
 
      Rigidbody rb;
      float inputHorizontal;
@@ -16,6 +16,7 @@ public class PlayerMove : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         Physics.IgnoreLayerCollision(3, 3);
+        anim = GetComponent<Animator>();
     }
 
     void Update()
@@ -24,7 +25,7 @@ public class PlayerMove : MonoBehaviour
         inputVertical = Input.GetAxisRaw(inputNameVertical);
 
         bool isMoving = inputHorizontal != 0 || inputVertical != 0;
-        animator.SetBool("isRunning", isMoving);
+        anim.SetBool("isRunning", isMoving);
     }
 
     void FixedUpdate()
