@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.AI;
 using System.Collections;
 
-public class EnemyStatus : MonoBehaviour, IDamagable
+public abstract class EnemyStatus : MonoBehaviour, IDamagable
 {
     [Header("Enemy Life Variables")]
     [SerializeField] float maxLife;
@@ -21,11 +21,13 @@ public class EnemyStatus : MonoBehaviour, IDamagable
 
     Vector3 originalScale;
     protected bool isExploding = false;
+    protected bool isDead = false;
 
     private void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
         animator = GetComponent<Animator>();
+        originalScale = transform.localScale;
     }
 
     private void Start()
@@ -93,20 +95,23 @@ public class EnemyStatus : MonoBehaviour, IDamagable
         AudioManager.Instance.explosion.Play();
         Destroy(gameObject);
     }
-
-
     #endregion ExplodeSequence
 
     public void TakeDamage(float amount)
     {
+        if (isDead) return;
         currentLife -= amount;
         if (currentLife <= 0)
         {
             Die();
         }
     }
+
     public void Die()
     {
+        if (isDead) return;
+        isDead = true;
+
         SkillBar.Instance.IncreaseSlider(gain);
         Destroy(gameObject);
     }

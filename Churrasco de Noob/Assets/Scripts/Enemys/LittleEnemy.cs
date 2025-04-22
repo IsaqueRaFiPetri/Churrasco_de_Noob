@@ -4,11 +4,11 @@ public class LittleEnemy : EnemyStatus
 {
     private void Update()
     {
+        if (isDead || isExploding) return;
+
         FindPlayers();
         FollowClosestPlayer();
         UpdateAnimation();
-
-        if (isExploding) return;
 
         Collider[] hitColliders = Physics.OverlapSphere(transform.position, detectionRange);
         foreach (var hitCollider in hitColliders)
